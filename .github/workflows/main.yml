@@ -1,0 +1,59 @@
+name: Build and deploy albireo FE
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build FE
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        working-directory: ./
+        run: |
+          npm ci
+
+      - name: Build App
+        working-directory: ./packages/app
+        run: |
+          echo ${{ secrets.ALBIREO_CONFIG }} | base64 -d > src/configs/hyperchain.config.json
+          npm run build
+
+      - name: Push APP Build to S3 Bucket
+        run: |
+          aws s3 sync packages/app/dist s3://${{ secrets.ALBIREO_BUCKET }} --delete
+
+      - name: Invalidate CloudFront Distribution
+        run: |
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.ALBIREO_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
+          
+      
+
+

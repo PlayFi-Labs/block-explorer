@@ -6,9 +6,9 @@
           {{ item.label }}
         </a>
       </div>
-      <div class="version-text-container">
-        <p>{{ config.version }}</p>
-      </div>
+<!--      <div class="version-text-container">-->
+<!--        <p>{{ config.version }}</p>-->
+<!--      </div>-->
     </div>
   </footer>
 </template>
@@ -24,15 +24,7 @@ const config = useRuntimeConfig();
 const navigation = reactive([
   {
     label: computed(() => t("footer.nav.docs")),
-    url: "https://docs.zksync.io/build/tooling/block-explorer/getting-started.html",
-  },
-  {
-    label: computed(() => t("footer.nav.terms")),
-    url: "https://zksync.io/terms",
-  },
-  {
-    label: computed(() => t("footer.nav.contact")),
-    url: "https://zksync.io/contact",
+    url: "https://docs.playfi.ai/",
   },
 ]);
 </script>

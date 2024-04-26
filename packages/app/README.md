@@ -42,8 +42,9 @@ const config: EnvironmentConfig = {
     {
       apiUrl: "http://localhost:3020",
       verificationApiUrl: "https://zksync2-testnet-explorer.zksync.dev",
+      faucetApiUrl: "http://localhost:3080",
       hostnames: ["localhost"],
-      icon: "/images/icons/zksync-arrows.svg",
+      icon: "/images/icons/playFi.png",
       l2ChainId: 270,
       l2NetworkName: "Local",
       maintenance: false,
@@ -55,8 +56,9 @@ const config: EnvironmentConfig = {
     {
       apiUrl: "http://localhost:3030",
       verificationApiUrl: "https://zksync2-testnet-explorer.zksync.dev",
+      faucetApiUrl: "http://localhost:3080",
       hostnames: ["localhost"],
-      icon: "/images/icons/zksync-arrows.svg",
+      icon: "/images/icons/playFi.png",
       l2ChainId: 270,
       l2NetworkName: "Local Hyperchain",
       maintenance: false,

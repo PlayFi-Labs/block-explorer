@@ -3,9 +3,9 @@
     <div class="header-wrap">
       <div class="header-container">
         <div class="logo-container">
-          <router-link :to="{ name: 'home' }">
-            <span class="sr-only">zkSync</span>
-            <zk-sync-era />
+          <router-link class="no-underline" :to="{ name: 'home' }">
+            <span class="sr-only">PlayFi</span>
+            <img src="/logo.png" class="h-auto w-[58px] min-w-[30px]" alt="PlayFi" />
           </router-link>
         </div>
         <div class="burger-button-container">
@@ -48,13 +48,6 @@
         </div>
       </div>
     </div>
-    <div
-      v-if="hasContent"
-      class="hero-banner-container"
-      :class="[`${currentNetwork.name}`, { 'home-banner': route.path === '/' }]"
-    >
-      <hero-arrows class="hero-image" />
-    </div>
     <transition
       enter-active-class="duration-200 ease-out"
       enter-from-class="scale-95 opacity-0"
@@ -68,7 +61,7 @@
           <div class="mobile-header-container">
             <div class="mobile-popover-navigation">
               <div class="popover-zksync-logo">
-                <zk-sync class="logo" />
+                <img src="/logo.png" class="h-auto w-[58px] min-w-[30px]" alt="PlayFi" />
               </div>
               <div class="-mr-2">
                 <PopoverButton class="close-popover-button">
@@ -142,15 +135,11 @@ import LinksPopover from "./LinksPopover.vue";
 import LocaleSwitch from "@/components/LocaleSwitch.vue";
 import NetworkSwitch from "@/components/NetworkSwitch.vue";
 import DiscordIcon from "@/components/icons/DiscordIcon.vue";
-import HeroArrows from "@/components/icons/HeroArrows.vue";
 import TwitterIcon from "@/components/icons/TwitterIcon.vue";
-import ZkSync from "@/components/icons/ZkSync.vue";
-import ZkSyncEra from "@/components/icons/ZkSyncEra.vue";
 
 import useContext from "@/composables/useContext";
 import useLocalization from "@/composables/useLocalization";
 
-import { isAddress, isBlockNumber, isTransactionHash } from "@/utils/validators";
 const { changeLanguage } = useLocalization();
 const { t, locale } = useI18n({ useScope: "global" });
 const route = useRoute();
@@ -159,7 +148,7 @@ const { currentNetwork } = useContext();
 const navigation = reactive([
   {
     label: computed(() => t("header.nav.documentation")),
-    url: "https://docs.zksync.io/build/tooling/block-explorer/getting-started.html",
+    url: "https://docs.playfi.ai/",
   },
 ]);
 
@@ -191,6 +180,10 @@ const links = [
     label: computed(() => t("header.nav.contractVerification")),
     to: { name: "contract-verification" },
   },
+  {
+    label: computed(() => t("header.nav.portal")),
+    url: computed(() => currentNetwork.value.l2WalletUrl),
+  },
 ];
 
 if (currentNetwork.value.bridgeUrl) {
@@ -200,38 +193,29 @@ if (currentNetwork.value.bridgeUrl) {
   });
 }
 
+if (currentNetwork.value.faucetApiUrl) {
+  links.push({
+    label: computed(() => t("header.nav.faucet")),
+    to: { name: "faucet" },
+  });
+}
+
 const toolsLinks = reactive(links);
 
 const socials = [
-  { url: "https://join.zksync.dev/", component: DiscordIcon },
-  { url: "https://twitter.com/zksync", component: TwitterIcon },
+  { url: "https://discord.gg/q6jUq5fn32", component: DiscordIcon },
+  { url: "https://twitter.com/PlayFiGaming", component: TwitterIcon },
 ];
-
-const hasContent = computed(() => {
-  if (route.name !== "not-found" && !currentNetwork.value.maintenance) {
-    if (route.params.hash) {
-      return isTransactionHash(route.params.hash as string);
-    }
-    if (route.params.address) {
-      return isAddress(route.params.address as string);
-    }
-    if (route.params.id) {
-      return isBlockNumber(route.params.id as string);
-    }
-    return true;
-  }
-  return false;
-});
 </script>
 
 <style lang="scss">
 .header-popover-container {
-  @apply relative bg-primary-900;
+  @apply relative;
   .header-wrap {
     @apply container z-50;
   }
   .header-container {
-    @apply flex items-center justify-between border-b border-neutral-500 py-4 md:space-x-10 lg:justify-start;
+    @apply flex items-center justify-between py-4 md:space-x-10 lg:justify-start;
   }
   .logo-container {
     @apply flex justify-start;
@@ -243,7 +227,7 @@ const hasContent = computed(() => {
     }
   }
   .navigation-container {
-    @apply hidden space-x-2 lg:flex xl:space-x-6;
+    @apply hidden space-x-2 lg:flex xl:space-x-6 ml-6 #{!important};
 
     .dropdown-container {
       @apply relative;
@@ -251,7 +235,7 @@ const hasContent = computed(() => {
       .navigation-link {
         @apply flex items-center;
         &.active {
-          @apply bg-primary-800;
+          @apply bg-gray-400 text-white;
 
           .dropdown-icon {
             @apply -rotate-180;
@@ -274,7 +258,7 @@ const hasContent = computed(() => {
       }
     }
     .navigation-link {
-      @apply rounded-md py-2.5 text-base font-medium text-white no-underline hover:bg-primary-800 md:px-3.5;
+      @apply rounded-md py-2.5 text-base font-medium text-black no-underline hover:bg-gray-400 hover:text-white md:px-3.5;
     }
 
     .router-link-exact-active {
@@ -294,7 +278,7 @@ const hasContent = computed(() => {
       @apply flex items-center justify-end;
 
       a {
-        @apply ml-4 first:ml-0;
+        @apply ml-4 first:ml-0 hover:text-primary-500;
       }
     }
   }
