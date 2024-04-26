@@ -2,10 +2,12 @@ export type NetworkConfig = {
   name: string;
   icon: string;
   verificationApiUrl?: string;
+  faucetApiUrl?: string;
   apiUrl: string;
   rpcUrl: string;
   bridgeUrl?: string;
   l2NetworkName: string;
+  l2WalletUrl: string;
   l2ChainId: 270 | 300 | 324;
   l1ExplorerUrl?: string;
   maintenance: boolean;

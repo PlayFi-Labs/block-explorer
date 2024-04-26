@@ -600,7 +600,7 @@ async function submitForm() {
   }
 }
 .subtitle {
-  @apply mt-2 text-sm text-white;
+  @apply mt-2 text-sm text-black;
 }
 .form-container {
   @apply md:grid-cols-4;

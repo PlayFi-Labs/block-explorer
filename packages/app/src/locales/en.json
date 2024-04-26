@@ -1,6 +1,6 @@
 {
     "general": {
-        "l2NetworkName": "zkSync Era",
+        "l2NetworkName": "PlayFi",
         "l1NetworkName": "Ethereum"
     },
     "copyButton": {
@@ -15,7 +15,7 @@
     "networkStats": {
         "title": "Network Stats",
         "subtitleTestnet": "Stats are occasionally reset on testnet.",
-        "subtitleMainnet": "zkSync Era Mainnet is open to everyone.",
+        "subtitleMainnet": "PlayFi Mainnet is open to everyone.",
         "committed": "Committed Blocks",
         "verified": "Verified Blocks",
         "transactions": "Transactions",
@@ -281,10 +281,12 @@
     "header": {
         "nav": {
             "blockExplorer": "Block Explorer",
+            "portal": "Portal",
             "documentation": "Documentation",
             "tools": "Tools",
             "apiDocs": "API Documentation",
             "contractVerification": "Smart Contract Verification",
+            "faucet": "Faucet",
             "debugger": "zkEVM Debugger",
             "bridge": "Bridge"
         }
@@ -309,8 +311,8 @@
         "subtitle": "zkRollups significantly cheaper than L1 or Optimistic Rollups"
     },
     "blockExplorer": {
-        "title": "zkSync Era Block Explorer",
-        "subtitle": "zkSync Era Block Explorer provides all the information to deep dive into transactions, blocks, contracts, and much more. Deep dive into zkSync Era and explore the network.",
+        "title": "PlayFi Block Explorer",
+        "subtitle": "PlayFi Block Explorer provides all the information to deep dive into transactions, blocks, contracts, and much more. Deep dive into PlayFi and explore the network.",
         "latestBlocks": "Latest Blocks",
         "latestTransactions": "Latest Transactions",
         "batches": "Latest Batches"
@@ -554,6 +556,31 @@
             }
         }
     },
+    "faucet": {
+        "title": "Testnet ETH Faucet",
+        "subtitle": "Faucet for requesting some Testnet ETH",
+        "resources": {
+            "maxdistribution": "The maximum amount of Testnet ETH per request is 1"
+        },
+        "form": {
+            "receivingAddress": {
+                "title": "Receiving Address",
+                "underline": "The address the testnet ETH should be sent to.",
+                "placeholder": "0x0000...",
+                "validation": {
+                    "required": "Receiving address is required",
+                    "not_valid": "Please, provide a valid address"
+                }
+            },
+            "buttonVerify": "Request Testnet ETH",
+            "buttonVerifying": "Processing...",
+            "buttonClear": "Clear"
+        },
+        "success": {
+            "title": "Tokens sent!",
+            "back": "Back to Faucet"
+        }
+    },
     "blockView": {
         "blockNumber": "Block #",
         "infoTableTitle": "Block Information",
@@ -664,7 +691,7 @@
         }
     },
     "document": {
-        "title": "zkSync Era Block Explorer",
+        "title": "PlayFi Block Explorer",
         "home": "Transactions, Blocks, Contracts and much more"
     },
     "notFound": {
@@ -674,11 +701,11 @@
         "contactSupport": "contact support"
     },
     "maintenance": {
-        "title": "zkSync {network} is on maintainance",
-        "description": "zkSync {network} is unavailable due to maintainance, you can find updates in our {twitter} or on {uptime}",
-        "twitterLink": "zkSync Developers",
+        "title": "PlayFi {network} is on maintainance",
+        "description": "PlayFi {network} is unavailable due to maintainance, you can find updates in our {twitter} or on {uptime}",
+        "twitterLink": "PlayFi Developers",
         "uptimeLink": "UpTime",
-        "twitterButton": "zkSync Developers"
+        "twitterButton": "PlayFi Developers"
     },
     "tabs": {
         "transactions": "Transactions",

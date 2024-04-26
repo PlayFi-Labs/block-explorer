@@ -67,6 +67,14 @@ export default [
     },
   },
   {
+    path: "/faucet",
+    name: "faucet",
+    component: () => import("@/views/FaucetView.vue"),
+    meta: {
+      title: "faucet.title",
+    },
+  },
+  {
     path: "/tokenlist",
     redirect: "tokens",
   },

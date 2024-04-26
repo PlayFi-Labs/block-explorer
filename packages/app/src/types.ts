@@ -59,3 +59,7 @@ export type ContractVerificationData = {
 };
 
 export type ContractVerificationStatus = "successful" | "failed" | "in_progress" | "queued";
+
+export type FaucetRequestData = {
+  receivingAddress: string;
+};
