@@ -138,7 +138,8 @@ function getBadgeIconByStatus(status: BatchListItem["status"]) {
   .badge-content {
     @apply flex items-center;
 
-    svg {
+    svg,
+    img {
       @apply ml-1;
     }
   }

@@ -452,7 +452,8 @@ function getDirection(item: TransactionListItem): Direction {
   .badge-content {
     @apply flex items-center;
 
-    svg {
+    svg,
+    img {
       @apply ml-1;
     }
   }
