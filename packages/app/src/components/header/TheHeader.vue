@@ -5,7 +5,7 @@
         <div class="logo-container">
           <router-link class="no-underline" :to="{ name: 'home' }">
             <span class="sr-only">PlayFi</span>
-            <img src="/logo.png" class="h-auto w-[58px] min-w-[30px]" alt="PlayFi" />
+            <img src="/logo.svg" class="h-auto w-full max-w-[130px]" alt="PlayFi" />
           </router-link>
         </div>
         <div class="burger-button-container">
@@ -61,7 +61,7 @@
           <div class="mobile-header-container">
             <div class="mobile-popover-navigation">
               <div class="popover-zksync-logo">
-                <img src="/logo.png" class="h-auto w-[58px] min-w-[30px]" alt="PlayFi" />
+                <img src="/logo.svg" class="h-auto w-full max-w-[130px]" alt="PlayFi" />
               </div>
               <div class="-mr-2">
                 <PopoverButton class="close-popover-button">

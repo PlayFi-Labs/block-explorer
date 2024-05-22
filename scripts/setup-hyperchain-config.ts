@@ -10,7 +10,7 @@ const buildAppConfig = (zkSyncEnvs: { [key: string]: string }) => ({
     verificationApiUrl: zkSyncEnvs.API_CONTRACT_VERIFICATION_URL || "",
     faucetApiUrl: zkSyncEnvs.FAUCET_API_URL || "",
     hostnames: ["localhost"],
-    icon: "/images/icons/playFi.png",
+    icon: "/images/icons/playFi.svg",
     l2ChainId: parseInt(zkSyncEnvs.CHAIN_ETH_ZKSYNC_NETWORK_ID, 10) || "",
     l2NetworkName: zkSyncEnvs.CHAIN_ETH_ZKSYNC_NETWORK || "",
     bridgeUrl: "http://localhost:3000/bridge",
