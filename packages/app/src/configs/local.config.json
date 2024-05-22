@@ -6,7 +6,7 @@
       "hostnames": [
         "localhost"
       ],
-      "icon": "/images/icons/playFi.png",
+      "icon": "/images/icons/playFi.svg",
       "l2ChainId": 270,
       "l2NetworkName": "Local",
       "maintenance": false,
